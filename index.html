@@ -3,12 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script>
-        window.location.href="https://tinder.com/"
-    </script>
+    <title>Tobby</title>
+    <style>
+        body{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        #filters {
+            background-color: #fff;
+            display: flex;
+            flex-direction: start;
+            align-items: flex-start;
+            flex-direction: column;
+            padding: 16px;
+            height: 90px;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 20px;
+        }
+
+        #logo {
+            display: flex;
+            justify-items: center;
+            margin-top: 0;
+            height: 12%;
+            max-height: 12vh;
+        }
+    </style>
 </head>
 <body>
-    
+    <img id="logo" src="imgs/logo.png" alt="Tobby">
+    <div id="filters">
+        <form action="" method="get">
+            <h1>Wie soll dein Hobby sein?</h1>
+
+            <label for="difficulty">Schwierigkeit:  <a id="difficulty-indicator"></a></label>
+            <input type="range" min="1" max="5" step="1" onchange="change()" name="difficulty" id="difficulty">
+
+            <label for="quantity">Häufigkeit:  <a id="quantity-indicator"></a></label>
+            <input type="range" min="1" max="5" step="1" onchange="change()" name="quantity" id="quantity">
+
+            <label for="usefullnes">Nützlichkeit:  <a id="usefullnes-indicator"></a></label>
+            <input type="range" min="1" max="5" step="1" onchange="change()" name="usefullnes" id="usefullnes">
+
+            <label for="coolnes">Coolnes:  <a id="coolnes-indicator"></a></label>
+            <input type="range" min="1" max="5" step="1" onchange="change()" name="coolnes" id="coolnes">
+
+            <label for="famenes">Bekanntheit:  <a id="famenes-indicator"></a></label>
+            <input type="range" min="1" max="5" step="1" onchange="change()" name="famenes" id="famenes">
+
+            <button type="submit">GO!</button>
+        </form>
+    </div>
+    <script>
+        if(location.search != "") {
+            window.location.href = "http://" + location.hostname + ":" + location.port + "/result.html" + location.search;
+        }
+
+        function change(){
+            const difficultySlider = document.getElementById("difficulty").value;
+            const difficultyIndicator = document.getElementById("difficulty-indicator");
+            const quantitySlider = document.getElementById("quantity").value;
+            const quantityIndicator = document.getElementById("quantity-indicator");
+            const usefullnesSlider = document.getElementById("usefullnes").value;
+            const usefullnesIndicator = document.getElementById("usefullnes-indicator");
+            const coolnesSlider = document.getElementById("coolnes").value;
+            const coolnesIndicator = document.getElementById("coolnes-indicator");
+            const famenesSlider = document.getElementById("famenes").value;
+            const famenesIndicator = document.getElementById("famenes-indicator");
+
+            difficultyIndicator.innerHTML = difficultySlider;
+            quantityIndicator.innerHTML = quantitySlider;
+            usefullnesIndicator.innerHTML = usefullnesSlider;
+            coolnesIndicator.innerHTML = coolnesSlider;
+            famenesIndicator.innerHTML = famenesSlider;
+        }
+        change()
+    </script>
 </body>
 </html>
