@@ -5,25 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tobby</title>
     <style>
+        a, h1, label { color: #fff }
         body{
+            background-color: rgb(27, 27, 27);
+            justify-content: center;
             font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
         }
         #filters {
-            background-color: #fff;
             display: flex;
             flex-direction: start;
             align-items: flex-start;
             flex-direction: column;
             padding: 16px;
             height: 90px;
+            max-width: fit-content;
+            min-width: fit-content;
         }
 
         input[type="range"] {
             width: 100%;
+            min-width: 100%;
+            max-width: 100%;
             height: 20px;
         }
 
@@ -31,8 +36,46 @@
             display: flex;
             justify-items: center;
             margin-top: 0;
-            height: 12%;
-            max-height: 12vh;
+            height: 20%;
+            max-height: 20vh;
+        }
+
+        form  {
+            max-width: fit-content;
+            min-width: fit-content;
+            width: fit-content;
+        }
+
+        button {
+          border: none;
+          background: rgb(131,58,180);
+          background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%); 
+          color: #fff;
+          font-weight: 700;
+          height: 20%;
+          font-size: 3rem;
+          width: 100%;
+          margin-top: 1.5%;
+          -webkit-border-radius: 50px;
+          -moz-border-radius: 50px;
+          border-radius: 50px;
+          cursor: pointer;
+          -webkit-box-shadow: inset 0px 0px 30px 0px rgba(0,0,0,0.2);
+          -moz-box-shadow: inset 0px 0px 30px 0px rgba(0,0,0,0.2);
+          box-shadow: inset 0px 0px 30px 0px rgba(0,0,0,0.2);
+          transition-duration: 0.5s;       
+        }
+
+        button:hover {
+          background: rgb(131,58,180);
+          background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%); 
+          -webkit-box-shadow: inset 0px 0px 30px 0px rgba(0,0,0,0.65);
+          -moz-box-shadow: inset 0px 0px 30px 0px rgba(0,0,0,0.65);
+          box-shadow: inset 0px 0px 30px 0px rgba(0,0,0,0.65);
+          transition-duration: 0.5s;
+          -webkit-border-radius: 80px;
+          -moz-border-radius: 80px;
+          border-radius: 80px; 
         }
     </style>
 </head>
@@ -43,20 +86,20 @@
             <h1>Wie soll dein Hobby sein?</h1>
 
             <label for="difficulty">Schwierigkeit:  <a id="difficulty-indicator"></a></label>
-            <input type="range" min="1" max="5" step="1" onchange="change()" name="difficulty" id="difficulty">
+            <input type="range" min="1" max="5" step="1" onchange="updateIndicators()" name="difficulty" id="difficulty">
 
             <label for="quantity">Häufigkeit:  <a id="quantity-indicator"></a></label>
-            <input type="range" min="1" max="5" step="1" onchange="change()" name="quantity" id="quantity">
+            <input type="range" min="1" max="5" step="1" onchange="updateIndicators()" name="quantity" id="quantity">
 
-            <label for="usefullnes">Nützlichkeit:  <a id="usefullnes-indicator"></a></label>
-            <input type="range" min="1" max="5" step="1" onchange="change()" name="usefullnes" id="usefullnes">
+            <label for="cost">Teuer:  <a id="cost-indicator"></a></label>
+            <input type="range" min="1" max="5" step="1" onchange="updateIndicators()" name="cost" id="cost">
 
-            <label for="coolnes">Coolnes:  <a id="coolnes-indicator"></a></label>
-            <input type="range" min="1" max="5" step="1" onchange="change()" name="coolnes" id="coolnes">
+            <label for="indoorOutdoor">Indoor/Outdoor:  <a id="indoorOutdoor-indicator"></a></label>
+            <input type="range" min="1" max="5" step="1" onchange="updateIndicators()" name="indoorOutdoor" id="indoorOutdoor">
 
-            <label for="famenes">Bekanntheit:  <a id="famenes-indicator"></a></label>
-            <input type="range" min="1" max="5" step="1" onchange="change()" name="famenes" id="famenes">
-
+            <label for="age">Alter:  <a id="age-indicator"></a></label>
+            <input type="range" min="1" max="5" step="1" onchange="updateIndicators()" name="age" id="age">
+            
             <button type="submit">GO!</button>
         </form>
     </div>
@@ -65,25 +108,93 @@
             window.location.href = "http://" + location.hostname + ":" + location.port + "/result.html" + location.search;
         }
 
-        function change(){
-            const difficultySlider = document.getElementById("difficulty").value;
-            const difficultyIndicator = document.getElementById("difficulty-indicator");
-            const quantitySlider = document.getElementById("quantity").value;
-            const quantityIndicator = document.getElementById("quantity-indicator");
-            const usefullnesSlider = document.getElementById("usefullnes").value;
-            const usefullnesIndicator = document.getElementById("usefullnes-indicator");
-            const coolnesSlider = document.getElementById("coolnes").value;
-            const coolnesIndicator = document.getElementById("coolnes-indicator");
-            const famenesSlider = document.getElementById("famenes").value;
-            const famenesIndicator = document.getElementById("famenes-indicator");
+        const difficultySlider = document.getElementById("difficulty");
+        const difficultyIndicator = document.getElementById("difficulty-indicator");
+        const quantitySlider = document.getElementById("quantity");
+        const quantityIndicator = document.getElementById("quantity-indicator");
+        const costSlider = document.getElementById("cost");
+        const costIndicator = document.getElementById("cost-indicator");
+        const indoorOutdoorSlider = document.getElementById("indoorOutdoor");
+        const indoorOutdoorIndicator = document.getElementById("indoorOutdoor-indicator");
+        const ageSlider = document.getElementById("age");
+        const ageIndicator = document.getElementById("age-indicator");
 
-            difficultyIndicator.innerHTML = difficultySlider;
-            quantityIndicator.innerHTML = quantitySlider;
-            usefullnesIndicator.innerHTML = usefullnesSlider;
-            coolnesIndicator.innerHTML = coolnesSlider;
-            famenesIndicator.innerHTML = famenesSlider;
+        function mapDifficultyToText(value) {
+          if (value < 2) {
+            return "Easy";
+          } else if (value < 4) {
+            return "Moderate";
+          } else {
+            return "Difficult";
+          }
         }
-        change()
+        
+        function mapQuantityToText(value) {
+          if (value < 2) {
+            return "Low";
+          } else if (value < 4) {
+            return "Medium";
+          } else {
+            return "High";
+          }
+        }
+        
+        function mapCostToText(value) {
+          if (value < 2) {
+            return "Günstig";
+          } else if (value < 5) {
+            return "Bezahlber";
+          } else {
+            return "Teuer";
+          }
+        }
+        
+        function mapindoorOutdoorsToText(value) {
+          switch(String(value)) {
+              case ("1"): 
+                return "Indoor";
+                break;
+              case ("2"): 
+                return "Überwiegend drinnen";
+                break;
+              case ("3"):
+                return "50/50";
+                break;
+              case ("4"):
+                return "Überwiegend draussen"
+                break;
+              case ("5"):
+                return "Outdoor";
+                break;
+          };
+        }
+        
+        function mapAgeToText(value) {
+          if (value < 2) {
+            return "Young";
+          } else if (value < 4) {
+            return "Middle-aged";
+          } else {
+            return "Old";
+          }
+        }
+        
+        function updateIndicators() {
+          difficultyIndicator.innerHTML = mapDifficultyToText(difficultySlider.value);
+          quantityIndicator.innerHTML = mapQuantityToText(quantitySlider.value);
+          costIndicator.innerHTML = mapCostToText(costSlider.value);
+          indoorOutdoorIndicator.innerHTML = mapindoorOutdoorsToText(indoorOutdoorSlider.value);
+          ageIndicator.innerHTML = mapAgeToText(ageSlider.value);
+        }
+        
+        updateIndicators();
+        
+        difficultySlider.addEventListener("input", updateIndicators);
+        quantitySlider.addEventListener("input", updateIndicators);
+        costSlider.addEventListener("input", updateIndicators);
+        indoorOutdoorSlider.addEventListener("input", updateIndicators);
+        ageSlider.addEventListener("input", updateIndicators);
+
     </script>
 </body>
 </html>

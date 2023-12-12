@@ -14,8 +14,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
-            background-color: #fff;
+            height: 100%;
+            background-color: rgb(27, 27, 27);
         }
 
         #card-container {
@@ -24,15 +24,16 @@
             height: 500px;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             margin-bottom: 16px;
         }
 
         .card {
+            color: #fff;
             position: relative;
             width: 100%;
             height: 100%;
-            background-color: #fff;
+            background-color: #1b1b1b;
             border-radius: 10px;
             box-shadow: 40px 40px 80px rgba(0, 0, 0, 1);
             overflow: auto;
@@ -44,7 +45,7 @@
             flex: 1;
             width: 100%;
             height: 250px;
-            max-heigth: 250px;
+            max-height: 250px;
             object-fit: cover;
         }
 
@@ -87,27 +88,30 @@
             display: flex;
             justify-items: center;
             margin-top: 0;
-            max-height: 12vh;
+            max-height: 20vh;
+            margin: 0;
+            margin-bottom: 16px;
+            margin-top: 8px;
         }
     </style>
 </head>
 
 <body>
     <img id="logo" src="imgs/logo.png" alt="Tobby">
-        <div id="card-container">
-            <div class="card">
-                <img src="" alt="Hobby Image Loading...">
-                <div class="card-text">
-                    <p class="card-text">Loading...</p>
-                    <a class="card-link" href="loading">Mehr Erfahren</a>
-                </div>
+    <div id="card-container">
+        <div class="card">
+            <img src="" alt="Hobby Image Loading...">
+            <div class="card-text">
+                <p class="card-text">Loading...</p>
+                <a class="card-link" href="loading">Mehr Erfahren</a>
             </div>
         </div>
+    </div>
 
-        <div id="buttons">
-            <button class="button" id="like-button">👍</button>
-            <button class="button" id="dislike-button">👎</button>
-        </div>
+    <div id="buttons">
+        <button class="button" id="like-button">👍</button>
+        <button class="button" id="dislike-button">👎</button>
+    </div>
     
     <script>
         const parameters = location.search;
@@ -121,23 +125,64 @@
 
         const hobbyData = [
             { image: 'imgs/swim.jpg', difficulty: 2, text: 'Schwimmsport ist die Ausübung des Schwimmens als sportliche Disziplin. In seiner Grundform wird Schwimmsport als Wettkampf mehrerer Teilnehmer um die Bewältigung einer vorgegebenen Schwimmstrecke in kürzestmöglicher Zeit ausgetragen.', url: "https://dlrg.de/" },
-            { image: 'imgs/football.jpg', difficulty: 1, text: 'Fußball ist eine Ballsportart, bei der zwei Mannschaften mit dem Ziel gegeneinander antreten, mehr Tore als der Gegner zu erzielen und so das Spiel zu gewinnen.', url: "https://www.dfb.de/" },
+            { image: 'imgs/football.jpg', difficulty: 1, text: 'Fußball ist eine Ballsportart, bei der zwei Mannschaften mit dem Ziel gegeneinander antreten, mehr Tore als der Gegner zu erzielen und so das Spiel zu gewinnen.', url: "https://www.ea.com/de-de/games/fifa/fifa-23" },
             { image: 'imgs/tabletennis.jpg', difficulty: 4, text: 'Tischtennis ist eine gegen Ende des 19. Jahrhunderts in England entstandene Ballsportart. Es handelt sich um eine Rückschlagsportart.', url: "https://tischtennis.de/" },
             { image: 'imgs/musicproduction.jpg', difficulty: 5, text: 'Musikproduktion ist der Herstellungsprozess eines musikalischen Werkes, das meist zur Veröffentlichung bestimmt ist. Tonträger und Qualitätsniveau können sehr stark variieren. Im Fachjargon wird das jeweilige Projekt bzw. Ergebnis oft auch einfach „Produktion“ genannt.', url: "https://www.image-line.com/" },
             { image: 'imgs/programming.jpg', difficulty: 5, text: 'Programmierung (von altgriechisch πρόγραμμα prógramma „öffentlich und schriftlich bekannt gemachte Nachricht, Befehl“) bezeichnet die Tätigkeit, Computerprogramme zu erstellen und wird dem Teilbereich der Softwareentwicklung zugerechnet.', url: "https://de.wikipedia.org/wiki/Programmierung" },
             { image: 'imgs/riding.jpg', difficulty: 4, text: 'Reiten bezeichnet die Fortbewegung des Menschen auf dem Rücken eines Tieres. Dabei kann es sich um Pferde, aber auch um andere Reittiere wie Esel oder Kamele handeln.', url: "https://de.wikipedia.org/wiki/Reiten" },
-            { image: 'imgs/fishing.jpg', difficulty: 3, text: 'Fischerei beschäftigt sich mit dem Fangen oder Züchten von Fischen und anderen Wassertieren zur Nahrungsgewinnung. Zu unterscheiden sind die Seefischerei (Hochseefischerei und Küstenfischerei) sowie die Binnenfischerei, also die Fischerei in Flüssen, Seen und Teichen. Eine Sonderform der Fischerei ist die Aquakultur.', url: "http://www.deutscher-fischerei-verband.de/" },
+            { image: 'imgs/fishing.jpg', difficulty: 3, quantity: 3, cost: 3, indoorOutdoor: 3, age: 3, text: 'Fischerei beschäftigt sich mit dem Fangen oder Züchten von Fischen und anderen Wassertieren zur Nahrungsgewinnung. Zu unterscheiden sind die Seefischerei (Hochseefischerei und Küstenfischerei) sowie die Binnenfischerei, also die Fischerei in Flüssen, Seen und Teichen. Eine Sonderform der Fischerei ist die Aquakultur.', url: "http://www.deutscher-fischerei-verband.de/" },
             { image: 'imgs/basketball.jpg', difficulty: 1, text: 'Handball ist eine Sportart, bei der zwei Mannschaften mit je sieben Spielern (sechs Feldspieler und ein Torwart) gegeneinander spielen.', url: "https://de.wikipedia.org/wiki/Handball" },
             { image: 'imgs/mixing-music.jpg', difficulty: 2, text: '„mixing“ (oder „mixdown“) ist in der Audio-Produktion (Musik, Film, Hörspiel, Hörbuch usw.) die Zusammenfügung aller analog oder digital bearbeiteten einzelnen Tonspuren zu einer Einheit, dem Summensignal (engl. „stem“). Es handelt sich um den vorletzten Prozess im Tonstudio, dem nur noch das Mastering folgt.', url: "https://de.wikipedia.org/wiki/Abmischung" },
             { image: 'imgs/drawing.jpg', difficulty: 2, text: 'Eine Zeichnung ist ein Bild, das ein Motiv in vereinfachender Weise mit Linien und Strichen darstellt. Dies unterscheidet Zeichnungen von der Malerei, welche ein Motiv durch den flächenhaften Einsatz von Farben und Tonwerten darstellt.', url: "https://www.rickroll.com" },
             { image: 'imgs/painting.jpg', difficulty: 3, text: 'Malerei ist die Kunst, Bilder zu malen. Die Bilder werden Gemälde genannt. Die Maltechnik besteht darin, feuchte Farben mittels Pinsel, Spachtel oder anderer Werkzeuge auf einen Malgrund aufzubringen.', url: "https://www.rickroll.com" },
             { image: 'imgs/writing.jpg', difficulty: 3, text: 'Schreiben bezeichnet in der übertragenen Bedeutung auch den kreativen Prozess des Verfassens von lyrischen und poetischen Texten.', url: "https://de.wikipedia.org/wiki/Schreiben" }
+            /* { image: 'imgs/writing.jpg', difficulty: 3, text: '', url: "" } */
         ];
+
+        function filterHobbyData() {
+            const difficultyParam = parseInt(parms.get('difficulty')) || 0;
+            const quantityParam = parseInt(parms.get('quantity')) || 0;
+            const costParam = parseInt(parms.get('cost')) || 0;
+            const indoorOutdoorParam = parseInt(parms.get('indoorOutdoor')) || 0; 
+            const ageParam = parseInt(parms.get('age')) || 0;
+
+            testData = hobbyData.filter((hobby) => {
+              return (
+                hobby.difficulty === difficultyParam &&
+                hobby.quantity === quantityParam &&
+                hobby.cost === costParam &&
+                hobby.indoorOutdoor === indoorOutdoorParam &&
+                hobby.age === ageParam
+              );
+            });
+
+            if (testData.length != 0){
+                return testData;
+            } else {
+                testData = hobbyData.filter((hobby) => {
+                    return (
+                      hobby.difficulty >= difficultyParam - 1 && hobby.difficulty <= difficultyParam + 1 && 
+                      hobby.quantity >= quantityParam - 1 && hobby.quantity <= quantityParam + 1 && 
+                      hobby.cost >= costParam - 1 && hobby.cost <= costParam + 1 && 
+                      hobby.indoorOutdoor >= indoorOutdoorParam - 1 && hobby.indoorOutdoor <= indoorOutdoorParam + 1 && 
+                      hobby.age >= ageParam - 1 && hobby.age <= ageParam + 1
+                    );
+                });
+                if(testData.length != 0){
+                    return testData;
+                } else {
+                        alert("Error 2: Es wurde konnte passendes Hobby zugewiesen werden. Du bist nun offiziell Hobbylos.")
+                    window.location.href = "https://media.tenor.com/gfjLhfkbNwgAAAAC/computer-sagt-nein-little-britain.gif";
+                }
+            }
+        }
+
+        const resultData = filterHobbyData();
 
         let currenthobbyIndex = 3;
 
         likeButton.addEventListener('click', () => {
-            window.open(hobbyData[currenthobbyIndex].url, '_blank');
+            window.open(resultData[currenthobbyIndex].url, '_blank');
             swipeCard(true);
         });
 
@@ -152,11 +197,11 @@
             card.style.transform = liked ? 'translateX(100%)' : 'translateX(-100%)';
 
             setTimeout(() => {
-                const nexthobby = hobbyData[(currenthobbyIndex + 1) % hobbyData.length];
+                const nexthobby = resultData[(currenthobbyIndex + 1) % resultData.length];
                 card.querySelector('img').src = nexthobby.image;
                 cardURL.href = nexthobby.url;
                 cardText.querySelector('p').textContent = nexthobby.text;
-                currenthobbyIndex = (currenthobbyIndex + 1) % hobbyData.length;
+                currenthobbyIndex = (currenthobbyIndex + 1) % resultData.length;
                 card.style.transform = 'translateX(0)';
             }, -1);
             if(liked){
