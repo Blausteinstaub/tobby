@@ -7,12 +7,12 @@
     <style>
         a, h1, label { color: #fff }
         body{
-            background-color: rgb(27, 27, 27);
             justify-content: center;
             font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
+            background-color: #1B1B1B;
         }
         #filters {
             display: flex;
@@ -40,7 +40,7 @@
             max-height: 20vh;
         }
 
-        form  {
+        form {
             max-width: fit-content;
             min-width: fit-content;
             width: fit-content;
@@ -49,7 +49,7 @@
         button {
           border: none;
           background: rgb(131,58,180);
-          background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%); 
+          background: linear-gradient(160deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%); 
           color: #fff;
           font-weight: 700;
           height: 20%;
@@ -60,23 +60,17 @@
           -moz-border-radius: 50px;
           border-radius: 50px;
           cursor: pointer;
-          -webkit-box-shadow: inset 0px 0px 30px 0px rgba(0,0,0,0.2);
-          -moz-box-shadow: inset 0px 0px 30px 0px rgba(0,0,0,0.2);
-          box-shadow: inset 0px 0px 30px 0px rgba(0,0,0,0.2);
-          transition-duration: 0.5s;       
+          -webkit-box-shadow: inset 0px 0px 30px 0px rgba(0,0,0,0.65);
+          -moz-box-shadow: inset 0px 0px 30px 0px rgba(0,0,0,0.65);
+          box-shadow: inset 0px 0px 30px 0px rgba(0,0,0,0.65);      
+          transition-duration: 0.85s; 
         }
 
         button:hover {
-          background: rgb(131,58,180);
-          background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%); 
-          -webkit-box-shadow: inset 0px 0px 30px 0px rgba(0,0,0,0.65);
-          -moz-box-shadow: inset 0px 0px 30px 0px rgba(0,0,0,0.65);
-          box-shadow: inset 0px 0px 30px 0px rgba(0,0,0,0.65);
-          transition-duration: 0.5s;
-          -webkit-border-radius: 80px;
-          -moz-border-radius: 80px;
-          border-radius: 80px; 
+          filter: hue-rotate(-45deg);
+          transition-duration: 0.85s;          
         }
+        
     </style>
 </head>
 <body>
