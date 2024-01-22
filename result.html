@@ -72,6 +72,13 @@
             font-size: 50px;
             cursor: pointer;
             margin: 0 8px;
+            transition-duration: 1;
+            opacity: 1;
+            transition: opacity 0.25s ease 0s;      
+        }
+
+        .button:hover {
+            opacity: 0.85;
         }
 
         #like-button {
@@ -100,7 +107,7 @@
     <img id="logo" src="imgs/logo.png" alt="Tobby">
     <div id="card-container">
         <div class="card">
-            <img src="" alt="Hobby Image Loading...">
+            <img src="" alt="Hobby Imsustainability Loading...">
             <div class="card-text">
                 <p class="card-text">Loading...</p>
                 <a class="card-link" href="loading">Mehr Erfahren</a>
@@ -124,19 +131,20 @@
         parms = new URLSearchParams(parameters);
 
         const hobbyData = [
-            { image: 'imgs/swim.jpg', difficulty: 3, quantity: 3, cost: 3, indoorOutdoor: 3, age: 3, text: 'Schwimmsport ist die Ausübung des Schwimmens als sportliche Disziplin. In seiner Grundform wird Schwimmsport als Wettkampf mehrerer Teilnehmer um die Bewältigung einer vorgegebenen Schwimmstrecke in kürzestmöglicher Zeit ausgetragen.', url: "https://dlrg.de/" },
-            { image: 'imgs/football.jpg', difficulty: 1, quantity: 3, cost: 3, indoorOutdoor: 3, age: 3, text: 'Fußball ist eine Ballsportart, bei der zwei Mannschaften mit dem Ziel gegeneinander antreten, mehr Tore als der Gegner zu erzielen und so das Spiel zu gewinnen.', url: "https://www.ea.com/de-de/games/fifa/fifa-23" },
-            { image: 'imgs/tabletennis.jpg', difficulty: 4, quantity: 3, cost: 3, indoorOutdoor: 3, age: 3, text: 'Tischtennis ist eine gegen Ende des 19. Jahrhunderts in England entstandene Ballsportart. Es handelt sich um eine Rückschlagsportart.', url: "https://tischtennis.de/" },
-            { image: 'imgs/musicproduction.jpg', difficulty: 5, quantity: 3, cost: 3, indoorOutdoor: 3, age: 3, text: 'Musikproduktion ist der Herstellungsprozess eines musikalischen Werkes, das meist zur Veröffentlichung bestimmt ist. Tonträger und Qualitätsniveau können sehr stark variieren. Im Fachjargon wird das jeweilige Projekt bzw. Ergebnis oft auch einfach „Produktion“ genannt.', url: "https://www.image-line.com/" },
-            { image: 'imgs/programming.jpg', difficulty: 5, quantity: 3, cost: 3, indoorOutdoor: 3, age: 3, text: 'Programmierung (von altgriechisch πρόγραμμα prógramma „öffentlich und schriftlich bekannt gemachte Nachricht, Befehl“) bezeichnet die Tätigkeit, Computerprogramme zu erstellen und wird dem Teilbereich der Softwareentwicklung zugerechnet.', url: "https://de.wikipedia.org/wiki/Programmierung" },
-            { image: 'imgs/riding.jpg', difficulty: 4, quantity: 3, cost: 3, indoorOutdoor: 3, age: 3, text: 'Reiten bezeichnet die Fortbewegung des Menschen auf dem Rücken eines Tieres. Dabei kann es sich um Pferde, aber auch um andere Reittiere wie Esel oder Kamele handeln.', url: "https://de.wikipedia.org/wiki/Reiten" },
-            { image: 'imgs/fishing.jpg', difficulty: 4, quantity: 1, cost: 4, indoorOutdoor: 5, age: 5, text: 'Fischerei beschäftigt sich mit dem Fangen oder Züchten von Fischen und anderen Wassertieren zur Nahrungsgewinnung. Zu unterscheiden sind die Seefischerei (Hochseefischerei und Küstenfischerei) sowie die Binnenfischerei, also die Fischerei in Flüssen, Seen und Teichen. Eine Sonderform der Fischerei ist die Aquakultur.', url: "http://www.deutscher-fischerei-verband.de/" },
-            { image: 'imgs/basketball.jpg', difficulty: 1, quantity: 3, cost: 3, indoorOutdoor: 3, age: 3, text: 'Handball ist eine Sportart, bei der zwei Mannschaften mit je sieben Spielern (sechs Feldspieler und ein Torwart) gegeneinander spielen.', url: "https://de.wikipedia.org/wiki/Handball" },
-            { image: 'imgs/mixing-music.jpg', difficulty: 2, quantity: 3, cost: 3, indoorOutdoor: 3, age: 3, text: '„mixing“ (oder „mixdown“) ist in der Audio-Produktion (Musik, Film, Hörspiel, Hörbuch usw.) die Zusammenfügung aller analog oder digital bearbeiteten einzelnen Tonspuren zu einer Einheit, dem Summensignal (engl. „stem“). Es handelt sich um den vorletzten Prozess im Tonstudio, dem nur noch das Mastering folgt.', url: "https://de.wikipedia.org/wiki/Abmischung" },
-            { image: 'imgs/drawing.jpg', difficulty: 2, quantity: 3, cost: 3, indoorOutdoor: 3, age: 3, text: 'Eine Zeichnung ist ein Bild, das ein Motiv in vereinfachender Weise mit Linien und Strichen darstellt. Dies unterscheidet Zeichnungen von der Malerei, welche ein Motiv durch den flächenhaften Einsatz von Farben und Tonwerten darstellt.', url: "https://de.wikipedia.org/wiki/Kunst" },
-            { image: 'imgs/painting.jpg', difficulty: 3, quantity: 3, cost: 3, indoorOutdoor: 3, age: 3, text: 'Malerei ist die Kunst, Bilder zu malen. Die Bilder werden Gemälde genannt. Die Maltechnik besteht darin, feuchte Farben mittels Pinsel, Spachtel oder anderer Werkzeuge auf einen Malgrund aufzubringen.', url: "https://de.wikipedia.org/wiki/Kunst" },
-            { image: 'imgs/writing.jpg', difficulty: 3, quantity: 3, cost: 3, indoorOutdoor: 3, age: 3, text: 'Schreiben bezeichnet in der übertragenen Bedeutung auch den kreativen Prozess des Verfassens von lyrischen und poetischen Texten.', url: "https://de.wikipedia.org/wiki/Schreiben" }
+            { image: 'imgs/swim.jpg', difficulty: 2, quantity: 2, cost: 2, indoorOutdoor: 3, sustainability: 3,  text: 'Schwimmsport ist die Ausübung des Schwimmens als sportliche Disziplin. In seiner Grundform wird Schwimmsport als Wettkampf mehrerer Teilnehmer um die Bewältigung einer vorgegebenen Schwimmstrecke in kürzestmöglicher Zeit ausgetrsustainabilityn.', url: "https://dlrg.de/" },
+            { image: 'imgs/football.jpg', difficulty: 4, quantity: 4, cost: 3, indoorOutdoor: 4, sustainability: 3,  text: 'Fußball ist eine Ballsportart, bei der zwei Mannschaften mit dem Ziel gegeneinander antreten, mehr Tore als der Gegner zu erzielen und so das Spiel zu gewinnen.', url: "https://www.ea.com/de-de/games/fifa/fifa-23" },
+            { image: 'imgs/tabletennis.jpg', difficulty: 4, quantity: 3, cost: 3, indoorOutdoor: 3, sustainability: 3,  text: 'Tischtennis ist eine gegen Ende des 19. Jahrhunderts in England entstandene Ballsportart. Es handelt sich um eine Rückschlagsportart.', url: "https://tischtennis.de/" },
+            { image: 'imgs/musicproduction.jpg', difficulty: 5, quantity: 3, cost: 3, indoorOutdoor: 3, sustainability: 3,  text: 'Musikproduktion ist der Herstellungsprozess eines musikalischen Werkes, das meist zur Veröffentlichung bestimmt ist. Tonträger und Qualitätsniveau können sehr stark variieren. Im Fachjargon wird das jeweilige Projekt bzw. Ergebnis oft auch einfach „Produktion“ genannt.', url: "https://www.imsustainability-line.com/" },
+            { image: 'imgs/programming.jpg', difficulty: 5, quantity: 3, cost: 3, indoorOutdoor: 3, sustainability: 3,  text: 'Programmierung (von altgriechisch πρόγραμμα prógramma „öffentlich und schriftlich bekannt gemachte Nachricht, Befehl“) bezeichnet die Tätigkeit, Computerprogramme zu erstellen und wird dem Teilbereich der Softwareentwicklung zugerechnet.', url: "https://de.wikipedia.org/wiki/Programmierung" },
+            { image: 'imgs/riding.jpg', difficulty: 4, quantity: 3, cost: 3, indoorOutdoor: 3, sustainability: 3,  text: 'Reiten bezeichnet die Fortbewegung des Menschen auf dem Rücken eines Tieres. Dabei kann es sich um Pferde, aber auch um andere Reittiere wie Esel oder Kamele handeln.', url: "https://de.wikipedia.org/wiki/Reiten" },
+            { image: 'imgs/fishing.jpg', difficulty: 4, quantity: 1, cost: 4, indoorOutdoor: 5, sustainability: 3,  text: 'Fischerei beschäftigt sich mit dem Fangen oder Züchten von Fischen und anderen Wassertieren zur Nahrungsgewinnung. Zu unterscheiden sind die Seefischerei (Hochseefischerei und Küstenfischerei) sowie die Binnenfischerei, also die Fischerei in Flüssen, Seen und Teichen. Eine Sonderform der Fischerei ist die Aquakultur.', url: "http://www.deutscher-fischerei-verband.de/" },
+            { image: 'imgs/basketball.jpg', difficulty: 1, quantity: 3, cost: 3, indoorOutdoor: 3, sustainability: 3,  text: 'Handball ist eine Sportart, bei der zwei Mannschaften mit je sieben Spielern (sechs Feldspieler und ein Torwart) gegeneinander spielen.', url: "https://de.wikipedia.org/wiki/Handball" },
+            { image: 'imgs/mixing-music.jpg', difficulty: 2, quantity: 3, cost: 3, indoorOutdoor: 3, sustainability: 3, text: '„mixing“ (oder „mixdown“) ist in der Audio-Produktion (Musik, Film, Hörspiel, Hörbuch usw.) die Zusammenfügung aller analog oder digital bearbeiteten einzelnen Tonspuren zu einer Einheit, dem Summensignal (engl. „stem“). Es handelt sich um den vorletzten Prozess im Tonstudio, dem nur noch das Mastering folgt.', url: "https://de.wikipedia.org/wiki/Abmischung" },
+            { image: 'imgs/drawing.jpg', difficulty: 2, quantity: 3, cost: 3, indoorOutdoor: 3, sustainability: 3,  text: 'Eine Zeichnung ist ein Bild, das ein Motiv in vereinfachender Weise mit Linien und Strichen darstellt. Dies unterscheidet Zeichnungen von der Malerei, welche ein Motiv durch den flächenhaften Einsatz von Farben und Tonwerten darstellt.', url: "https://de.wikipedia.org/wiki/Kunst" },
+            { image: 'imgs/painting.jpg', difficulty: 3, quantity: 3, cost: 3, indoorOutdoor: 3, sustainability: 3,  text: 'Malerei ist die Kunst, Bilder zu malen. Die Bilder werden Gemälde genannt. Die Maltechnik besteht darin, feuchte Farben mittels Pinsel, Spachtel oder anderer Werkzeuge auf einen Malgrund aufzubringen.', url: "https://de.wikipedia.org/wiki/Kunst" },
+            { image: 'imgs/writing.jpg', difficulty: 3, quantity: 3, cost: 3, indoorOutdoor: 3, sustainability: 3,  text: 'Schreiben bezeichnet in der übertrsustainabilitynen Bedeutung auch den kreativen Prozess des Verfassens von lyrischen und poetischen Texten.', url: "https://de.wikipedia.org/wiki/Schreiben" }
         ];
+
 
 
         function filterHobbyData() {
@@ -144,7 +152,7 @@
             const quantityParam = parseInt(parms.get('quantity')) || 0;
             const costParam = parseInt(parms.get('cost')) || 0;
             const indoorOutdoorParam = parseInt(parms.get('indoorOutdoor')) || 0; 
-            const ageParam = parseInt(parms.get('age')) || 0;
+            const sustainabilityParam = parseInt(parms.get('sustainability')) || 0;
 
             testData = hobbyData.filter((hobby) => {
               return (
@@ -152,7 +160,7 @@
                 hobby.quantity === quantityParam &&
                 hobby.cost === costParam &&
                 hobby.indoorOutdoor === indoorOutdoorParam &&
-                hobby.age === ageParam
+                hobby.sustainability === sustainabilityParam
               );
             });
 
@@ -165,7 +173,7 @@
                       hobby.quantity >= quantityParam - 1 && hobby.quantity <= quantityParam + 1 && 
                       hobby.cost >= costParam - 1 && hobby.cost <= costParam + 1 && 
                       hobby.indoorOutdoor >= indoorOutdoorParam - 1 && hobby.indoorOutdoor <= indoorOutdoorParam + 1 && 
-                      hobby.age >= ageParam - 1 && hobby.age <= ageParam + 1
+                      hobby.sustainability >= sustainabilityParam - 1 && hobby.sustainability <= sustainabilityParam + 1
                     );
                 });
                 if(testData.length != 0){

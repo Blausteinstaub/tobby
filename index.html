@@ -90,11 +90,11 @@
 
             <label for="indoorOutdoor">Indoor/Outdoor:  <a id="indoorOutdoor-indicator"></a></label>
             <input type="range" min="1" max="5" step="1" onchange="updateIndicators()" name="indoorOutdoor" id="indoorOutdoor">
-
-            <label for="age">Alter:  <a id="age-indicator"></a></label>
-            <input type="range" min="1" max="5" step="1" onchange="updateIndicators()" name="age" id="age">
             
-            <button type="submit">GO!</button>
+            <label for="sustainability">Nachhaltigkeit:  <a id="sustainability-indicator"></a></label>
+            <input type="range" min="1" max="5" step="1" onchange="updateIndicators()" name="sustainability" id="sustainability">
+            
+            <button style="width: 100%;" type="submit">GO!</button>
         </form>
     </div>
     <script>
@@ -110,36 +110,66 @@
         const costIndicator = document.getElementById("cost-indicator");
         const indoorOutdoorSlider = document.getElementById("indoorOutdoor");
         const indoorOutdoorIndicator = document.getElementById("indoorOutdoor-indicator");
-        const ageSlider = document.getElementById("age");
-        const ageIndicator = document.getElementById("age-indicator");
-
+        const sustainabilitySlider = document.getElementById("sustainability");
+        const sustainabilityIndicator = document.getElementById("sustainability-indicator");
+        
         function mapDifficultyToText(value) {
-          if (value < 2) {
-            return "Easy";
-          } else if (value < 4) {
-            return "Moderate";
-          } else {
-            return "Difficult";
+          switch(String(value)) {
+            case "1":
+              return "Leicht";
+              break;
+            case "2":
+              return "Einfach";
+              break;
+            case "3":
+              return "Durchschnittlich";
+              break;
+            case "4":
+              return "Anspruchsvoll";
+              break;
+            case "5":
+              return "Hochschwierig";
+              break;
           }
         }
         
         function mapQuantityToText(value) {
-          if (value < 2) {
-            return "Low";
-          } else if (value < 4) {
-            return "Medium";
-          } else {
-            return "High";
+          switch(String(value)) {
+            case "1":
+              return "Selten";
+              break;
+            case "2":
+              return "Gelegentlich";
+              break;
+            case "3":
+              return "Durchschnittlich";
+              break;
+            case "4":
+              return "Häufig";
+              break;
+            case "5":
+              return "Oft";
+              break;
           }
         }
         
         function mapCostToText(value) {
-          if (value < 2) {
-            return "Günstig";
-          } else if (value < 5) {
-            return "Bezahlber";
-          } else {
-            return "Teuer";
+          switch(String(value)) {
+            case "1":
+              return "Günstig";
+              break;
+            case "2":
+              return "Budgetfreundlich";
+              break;
+            case "3":
+              return "Durchschnittlich";
+              break;
+            case "4":
+              return "Hochpreisig";
+              break;
+            case "5":
+              return "Teuer";
+              break;
           }
         }
         
@@ -162,14 +192,24 @@
                 break;
           };
         }
-        
-        function mapAgeToText(value) {
-          if (value < 2) {
-            return "Young";
-          } else if (value < 4) {
-            return "Middle-aged";
-          } else {
-            return "Old";
+
+        function mapSustainabilityToText(value) {
+          switch(String(value)) {
+            case "1":
+              return "Regenerativ";
+              break;
+            case "2":
+              return "Nachhaltig";
+              break;
+            case "3":
+              return "Durchschnittlich";
+              break;
+            case "4":
+              return "Schwerwiegend";
+              break;
+            case "5":
+              return "Stark Umweltbelastend";
+              break;
           }
         }
         
@@ -178,16 +218,26 @@
           quantityIndicator.innerHTML = mapQuantityToText(quantitySlider.value);
           costIndicator.innerHTML = mapCostToText(costSlider.value);
           indoorOutdoorIndicator.innerHTML = mapindoorOutdoorsToText(indoorOutdoorSlider.value);
-          ageIndicator.innerHTML = mapAgeToText(ageSlider.value);
+          sustainabilityIndicator.innerHTML = mapSustainabilityToText(sustainabilitySlider.value);
         }
         
         updateIndicators();
+
+        function swim(){
+          difficultyIndicator.value=2;
+          quantityIndicator.value=2;
+          costIndicator.value=2;
+          indoorOutdoorIndicator.value=3;
+          sustainabilityIndicator.value=3;
+          updateIndicators();
+        }
         
         difficultySlider.addEventListener("input", updateIndicators);
         quantitySlider.addEventListener("input", updateIndicators);
         costSlider.addEventListener("input", updateIndicators);
         indoorOutdoorSlider.addEventListener("input", updateIndicators);
-        ageSlider.addEventListener("input", updateIndicators);
+        sustainabilitySlider.addEventListener("input", updateIndicators);
+        document.getElementById("logo").addEventListener("click", swim());
 
     </script>
 </body>
