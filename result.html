@@ -141,7 +141,10 @@
             { image: 'imgs/drawing.jpg', difficulty: 2, quantity: 3, cost: 3, indoorOutdoor: 3, sustainability: 3,  text: 'Zeichnen ist eine künstlerische Tätigkeit, die die Vorstellungskraft und Feinmotorik fördert.', url: "https://de.wikipedia.org/wiki/Kunst" },
             { image: 'imgs/painting.jpg', difficulty: 3, quantity: 3, cost: 3, indoorOutdoor: 3, sustainability: 3,  text: 'Malen ermöglicht kreative Selbstentfaltung und Ausdruck von Emotionen auf der Leinwand.', url: "https://de.wikipedia.org/wiki/Kunst" },
             { image: 'imgs/writing.jpg', difficulty: 3, quantity: 3, cost: 3, indoorOutdoor: 3, sustainability: 3,  text: 'Schreiben ist eine bereichernde Tätigkeit, die Gedanken, Geschichten und Ideen zum Ausdruck bringt.', url: "https://de.wikipedia.org/wiki/Schreiben" },
-            { image: 'imgs/tennis.jpg', difficulty: 3, quantity: 4, cost: 2, indoorOutdoor: 3, sustainability: 2,  text: 'Tennis ist ein anspruchsvoller Rückschlagsport, der Kondition, Präzision und Taktik erfordert.', url: "https://de.wikipedia.org/wiki/Tennis" }
+            { image: 'imgs/tennis.jpg', difficulty: 3, quantity: 4, cost: 2, indoorOutdoor: 3, sustainability: 2,  text: 'Tennis ist ein anspruchsvoller Rückschlagsport, der Kondition, Präzision und Taktik erfordert.', url: "https://de.wikipedia.org/wiki/Tennis" },
+            { image: 'imgs/volleyball.jpg', difficulty: 2, quantity: 3, cost: 1, indoorOutdoor: 2, sustainability: 2, text: 'Volleyball ist eine Ballsportart, die sowohl in einer Halle und draußen gespielt werden kann.', url: "https://de.m.wikipedia.org/wiki/Volleyball"},
+            { image: 'imgs/piano.jpg', difficulty: 5, quantity: 5, cost: 4, indoorOutdoor: 5, sustainability: 2, text: 'Das Klimpern auf dem Klavir ist nicht nur ein angenehmes Hobby, welches ein Ohrenschmeichelnden Klang besitzt, es ist auch stehts hoch angepriesen.', url: "https://www.google.com/search?q=klavier+kaufen&ie=UTF-8&oe=UTF-8&hl=de-fr&client=safari#trex=m_dg:1,m_r:1,m_t:gwp,rc_q:klavier%2520kaufen,rc_ui:10,ru_gwp:0%252C6,ru_q:klavier%2520kaufen,trex_id:r3238c"}
+
         ];
 
 
@@ -176,7 +179,9 @@
                     );
                 });
                 if(testData.length != 0){
+                    testDataAlt = ((costParam - hobbyData.cost) + (difficultyParam - hobby.difficulty) + (quantityParam - hobby.quantity) + (indoorOutdoorParam - hobby.indoorOutdoor) + (sustainabilityParam - hobby.sustainability))/25;
                     return testData;
+                    
                 } else {
                         alert("Error 2: Es wurde konnte passendes Hobby zugewiesen werden. Du bist nun offiziell Hobbylos.")
                     window.location.href = "https://media.tenor.com/gfjLhfkbNwgAAAAC/computer-sagt-nein-little-britain.gif";
